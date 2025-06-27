@@ -14,6 +14,7 @@ import torch
 import gradio as gr
 import streamlit as st
 import sys
+import time
 
 # Load a local Hugging Face model for text generation
 generator = pipeline("text-generation", model="distilgpt2", torch_dtype=torch.float32)
@@ -42,7 +43,10 @@ def run_cli():
         if user_input.lower() == "exit":
             print("Elodin: Until next time.")
             break
+        st = time.time() # Start Timer
         response = chatbot_interface(user_input)
+        et = time.time() # End Timer
+        print(f"Total Time for CLI_response: {(et - st):.4f} seconds") # Total Time for the response operation
         print("Elodin:", response)
 
 def run_gradio():
