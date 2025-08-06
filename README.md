@@ -1,2 +1,2 @@
 # elodin-chatbot
-a test project - Using modern tect
+a test project - Using modern technology
